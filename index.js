@@ -6,7 +6,7 @@ babel.transformFile('./test.jsx', {
 	plugins: [
 		// "@babel/plugin-syntax-jsx",
 		"@babel/plugin-transform-react-jsx",
-		"./jsx-traverse-test",
+		"./babel-plugin-vue-react",
 	]
 }, (err, result) => {
   if (err) {

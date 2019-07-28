@@ -1,0 +1,45 @@
+rayshih-mbp:vue-react rayshih$ cat test.jsx
+export default () => {
+  const items = [1, 2, 3];
+
+  return (
+    <ul>
+      <li v-for="item in items">
+        There is something todo with {item}
+      </li>
+    </ul>
+  );
+}
+rayshih-mbp:vue-react rayshih$ node index.js
+---result code---
+export default (() => {
+  const items = [1, 2, 3];
+  return React.createElement("ul", null, items.map(item => React.createElement("li", null, "There is something todo wi
+th ", item)));
+});
+rayshih-mbp:vue-react rayshih$ cat target.jsx
+export default () => {
+  const items = [1, 2, 3];
+
+  return (
+    <ul>
+      {items.map(item => (
+        <li>
+          There is something todo with {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+rayshih-mbp:vue-react rayshih$ cat target.js
+---result code---
+export default (() => {
+  const items = [1, 2, 3];
+  return React.createElement(
+    "ul", null,
+    items.map(item => React.createElement("li", null,
+      "There is something todo with ", item)
+    )
+  );
+});
+rayshih-mbp:vue-react rayshih$
